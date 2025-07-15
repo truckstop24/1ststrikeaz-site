@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="1st Strike Pest & Termite | Fast, bold, family-safe pest control across Arizona">
+  <title>1st Strike Pest & Termite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: #111;
+      --accent: #e31837;
+      --text-color: #fff;
+      --highlight: #ffcb05;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Russo One', sans-serif;
+      background-color: var(--main-bg);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+    header {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: #000;
+    }
+    .slider-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      animation: slider 20s infinite;
+      background-size: cover;
+      background-position: center;
+    }
+    .logo-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      opacity: 0.2;
+      max-width: 80%;
+    }
+    @keyframes slider {
+      0% { background-image: url('bg1.jpg'); }
+      33% { background-image: url('bg2.jpg'); }
+      66% { background-image: url('bg3.jpg'); }
+      100% { background-image: url('bg1.jpg'); }
+    }
+    .hero-text {
+      font-size: 3rem;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 3px solid var(--accent);
+      color: var(--highlight);
+      text-transform: uppercase;
+    }
+    nav {
+      background-color: #000;
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+    nav a {
+      color: var(--highlight);
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    @media (max-width: 768px) {
+      .hero-text {
+        font-size: 2rem;
+      }
+      nav {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-bg"></div>
+  <header>
+    <img src="logo.png" alt="1st Strike Logo" class="logo-bg">
+    <div class="hero-text">Protecting What Matters Most</div>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" style="padding: 4rem 2rem; max-width: 1000px; margin: auto; text-align: center;">
+    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 1rem;">About 1st Strike Pest & Termite</h2>
+    <p style="font-size: 1.1rem; line-height: 1.8;">
+      At <strong>1st Strike Pest & Termite</strong>, we specialize in fast, effective, and family-safe pest solutions across Arizona. From rodents and general pests to weeds, termites, and solar panel bird-proofing, we protect what matters most — your home, your family, and your peace of mind.
+    </p>
+    <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+      With deep local knowledge and years of hands-on experience, our approach is precise and proactive. We don’t believe in one-size-fits-all treatments. Instead, we tailor every job to the property and pest issue at hand — delivering dependable results, every time.
+    </p>
+    <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+      Whether you're looking for preventative service or need a one-time corrective treatment, we’re ready to strike first — so pests don’t get the chance.
+    </p>
+  </section>
+
+  <section id="services" style="padding: 4rem 2rem; max-width: 1000px; margin: auto; text-align: center;">
+    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 2rem;">Our Services</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+      <div style="background-color: #222; padding: 2rem; border: 2px solid var(--accent); border-radius: 12px;">
+        <h3 style="color: var(--highlight); margin-bottom: 1rem;">General Pest Control</h3>
+        <p>Residential treatments to stop ants, roaches, spiders, and more — fast and safe for families and pets.</p>
+      </div>
+      <div style="background-color: #222; padding: 2rem; border: 2px solid var(--accent); border-radius: 12px;">
+        <h3 style="color: var(--highlight); margin-bottom: 1rem;">Rodent Control</h3>
+        <p>Exclusion, trapping, and cleanup for mice and rats. We find the source and shut it down.</p>
+      </div>
+      <div style="background-color: #222; padding: 2rem; border: 2px solid var(--accent); border-radius: 12px;">
+        <h3 style="color: var(--highlight); margin-bottom: 1rem;">Weed Control</h3>
+        <p>Powerful and precise post- and pre-emergent weed treatments to keep your property looking sharp.</p>
+      </div>
+      <div style="background-color: #222; padding: 2rem; border: 2px solid var(--accent); border-radius: 12px;">
+        <h3 style="color: var(--highlight); margin-bottom: 1rem;">Termite Services</h3>
+        <p>Preventative and corrective termite treatments with detailed reports and honest pricing.</p>
+      </div>
+      <div style="background-color: #222; padding: 2rem; border: 2px solid var(--accent); border-radius: 12px;">
+        <h3 style="color: var(--highlight); margin-bottom: 1rem;">Bird Control</h3>
+        <p>We install custom bird deterrents, exclusion barriers, and humane netting to keep rooftops and entry points protected from pigeons and other nuisance birds.</p>
+      </div>
+      <div style="background-color: #222; padding: 2rem; border: 2px solid var(--accent); border-radius: 12px;">
+        <h3 style="color: var(--highlight); margin-bottom: 1rem;">Solar Panel Cleaning & Screening</h3>
+        <p>Specialized solar panel cleaning services combined with protective bird screening to prevent nesting, damage, and debris buildup under your panels.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding: 4rem 2rem; max-width: 1000px; margin: auto; text-align: center;">
+    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 1rem;">Contact Us</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 2rem;">Call us at <strong style="color: var(--highlight);">480-745-4114</strong> or email us at <strong style="color: var(--highlight);">1ststrikepestandtermite@gmail.com</strong> or use the form below and we’ll get back to you promptly.</p>
+
+    <form style="display: grid; gap: 1rem; max-width: 600px; margin: auto;">
+      <input type="text" placeholder="Your Name" required style="padding: 0.75rem; border-radius: 6px; border: none;">
+      <input type="text" placeholder="Your Address" required style="padding: 0.75rem; border-radius: 6px; border: none;">
+      <textarea placeholder="Describe your issue or concern" rows="4" required style="padding: 0.75rem; border-radius: 6px; border: none;"></textarea>
+      <input type="text" placeholder="How should we contact you? (Phone, Email, etc.)" required style="padding: 0.75rem; border-radius: 6px; border: none;">
+      <button type="submit" style="padding: 1rem; background-color: var(--accent); color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>
