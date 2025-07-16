@@ -1,0 +1,36 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #000;
+  color: #fff;
+  padding: 1em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.hero {
+  background: url('https://i.imgur.com/pN3g91q.jpeg') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+
+.hero h1 {
+  margin-bottom: 20vh;
+  font-size: 2rem;
+  text-align: center;
+}
