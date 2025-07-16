@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | 1st Strike Pest & Termite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: #111;
+      --accent: #e31837;
+      --text-color: #fff;
+      --highlight: #ffcb05;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Russo One', sans-serif;
+      background-color: var(--main-bg);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+      border-bottom: 2px solid var(--accent);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--highlight);
+    }
+    nav {
+      background-color: #000;
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+    nav a {
+      color: var(--highlight);
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .gallery {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      border: 2px solid var(--accent);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+
+  <header>
+    <h1>Project Gallery</h1>
+    <p style="color: #ccc; margin-top: 1rem;">A look at the work we do — from bird control to termite and pest protection.</p>
+  </header>
+
+  <section class="gallery">
+    <img src="https://i.imgur.com/1.jpg" alt="Placeholder 1">
+    <img src="https://i.imgur.com/2.jpg" alt="Placeholder 2">
+    <img src="https://i.imgur.com/3.jpg" alt="Placeholder 3">
+    <img src="https://i.imgur.com/4.jpg" alt="Placeholder 4">
+  </section>
+</body>
+</html>
