@@ -24,13 +24,24 @@
 
     <section class="about" id="about">
       <h2>About Us</h2>
-      <p>1st Strike Pest and Termite is committed to protecting your home and family. We specialize in general pest, termite, weed, rodent, and bird control services throughout Arizona. Our mission is to strike pests before they strike you.</p>
+      <p>We are a locally owned and operated pest and termite control company serving Arizona. With years of experience and a passion for protecting homes, we provide expert service for general pests, termites, weeds, rodents, and birds. Trust 1st Strike to protect what matters most—your home and family.</p>
     </section>
 
     <section class="contact" id="contact">
       <h2>Contact Us</h2>
-      <p>Give us a call at <a href="tel:480-915-1432">480-915-1432</a></p>
-      <p>Email: <a href="mailto:1ststrikepestandtermite@gmail.com">1ststrikepestandtermite@gmail.com</a></p>
+      <form action="mailto:1ststrikepestandtermite@gmail.com" method="POST" enctype="text/plain">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="Name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="Message" rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+      <p>Or call us at <a href="tel:480-915-1432">480-915-1432</a></p>
     </section>
   </main>
 
