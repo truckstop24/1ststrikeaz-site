@@ -5,20 +5,20 @@ body {
 }
 
 header {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
+  background: #000;
+  color: #fff;
   padding: 1em;
 }
 
-.nav {
+nav ul {
   list-style: none;
   display: flex;
   gap: 1em;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
-.nav li a {
+nav ul li a {
   color: white;
   text-decoration: none;
 }
@@ -35,13 +35,13 @@ header {
 }
 
 .hero h1 {
+  margin-bottom: 22vh;
   font-size: 2rem;
-  margin-bottom: 25vh;
   text-align: center;
 }
 
 footer {
-  background-color: #f0f0f0;
+  background: #f2f2f2;
   text-align: center;
   padding: 1em;
 }
