@@ -4,63 +4,120 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gallery | 1st Strike Pest & Termite</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="https://vercel.com/analytics/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: #111;
+      --accent: #e31837;
+      --text-color: #fff;
+      --highlight: #ffcb05;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Russo One', sans-serif;
+      background-color: var(--main-bg);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+
+    /* Smaller Hero for Gallery */
+    .gallery-header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.imgur.com/pN3g91q.jpeg') center center / cover no-repeat;
+      padding: 4rem 1rem;
+      text-align: center;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    nav {
+      background-color: #000;
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid var(--accent);
+    }
+    nav a {
+      color: var(--highlight);
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .photo-card {
+      border: 3px solid var(--accent);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #222;
+      transition: transform 0.3s;
+    }
+    .photo-card:hover { transform: scale(1.02); }
+    
+    .photo-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-label {
+      padding: 1rem;
+      background: #000;
+      color: var(--highlight);
+      text-align: center;
+      border-top: 2px solid var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      nav { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">1st Strike</div>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="gallery.html" class="active">Gallery</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-      <a href="tel:4809151432" class="nav-call">Call Now</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero gallery-hero">
-      <div class="hero-content">
-        <h1>Our Work in Action</h1>
-        <p>Proven protection for homes and solar across Arizona.</p>
-      </div>
-    </section>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
 
-    <section class="gallery-container">
-      <div class="image-grid">
-        
-        <div class="image-card">
-          <img src="images/solar1.jpg" alt="Solar Panel Cleaning">
-          <div class="image-info">
-            <h3>Solar Shield</h3>
-            <p>Panel Cleaning & Critter Guards</p>
-          </div>
-        </div>
+  <section class="gallery-header">
+    <h1 style="color: var(--highlight); font-size: 2.5rem; text-transform: uppercase;">Our Work in the Field</h1>
+  </section>
 
-        <div class="image-card">
-          <img src="images/bird1.jpg" alt="Bird Exclusion Mesh">
-          <div class="image-info">
-            <h3>Bird Mitigation</h3>
-            <p>Custom Mesh Boxes</p>
-          </div>
-        </div>
+  <div class="gallery-grid">
+    <div class="photo-card">
+      <img src="images/solar-shield-1.jpg" alt="Solar Panel Protection">
+      <div class="photo-label">Solar Shield Protection</div>
+    </div>
 
-        <div class="image-card">
-          <img src="images/pest1.jpg" alt="Termite Treatment">
-          <div class="image-info">
-            <h3>Pest & Termite</h3>
-            <p>Residential Protection</p>
-          </div>
-        </div>
+    <div class="photo-card">
+      <img src="images/bird-exclusion.jpg" alt="Bird Mitigation">
+      <div class="photo-label">Bird Mitigation Mesh</div>
+    </div>
 
-        </div>
-    </section>
-  </main>
+    <div class="photo-card">
+      <img src="images/termite-job.jpg" alt="Termite Treatment">
+      <div class="photo-label">Termite Control</div>
+    </div>
+  </div>
 
-  <footer>
-    <p>&copy; 2026 1st Strike Pest & Termite | Licensed & Insured</p>
+  <footer style="text-align: center; padding: 2rem; border-top: 2px solid var(--accent); margin-top: 2rem;">
+    <p>&copy; 2026 1st Strike Pest & Termite</p>
   </footer>
+
 </body>
 </html>
