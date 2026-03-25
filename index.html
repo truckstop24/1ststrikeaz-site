@@ -7,97 +7,163 @@
   <title>1st Strike Pest & Termite</title>
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
   <style>
-  :root {
-    --main-bg: #000;
-    --accent: #e31837; /* 1st Strike Red */
-    --highlight: #ffcb05; /* 1st Strike Yellow */
-    --text-white: #ffffff;
-  }
+    :root {
+      --main-bg: #111;
+      --accent: #e31837;
+      --text-color: #fff;
+      --highlight: #ffcb05;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Russo One', sans-serif;
+      background-color: var(--main-bg);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* --- DESKTOP HERO (BOLD & WIDE) --- */
+    header {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end; 
+      text-align: center;
+      background: #000 url('https://i.imgur.com/pN3g91q.jpeg') center center / cover no-repeat;
+      padding-bottom: 5vh;
+    }
 
-  body {
-    font-family: 'Russo One', sans-serif;
-    background-color: var(--main-bg);
-    color: var(--text-white);
-    line-height: 1.6;
-  }
+    .hero-text {
+      font-size: 3.5rem;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.75);
+      border: 4px solid var(--accent);
+      color: var(--highlight);
+      text-transform: uppercase;
+      z-index: 2;
+      
+      /* THE STRETCH FIX */
+      width: 95%;
+      max-width: 1200px;
+      white-space: nowrap; /* Keeps text on one line for desktop */
+      letter-spacing: 1px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
 
-  /* --- RESTORED HEADER --- */
-  header {
-    position: relative;
-    width: 100%;
-    height: 450px; 
-    background-color: #000;
-    background-image: url('https://i.imgur.com/bACN5Gz.png');
-    background-position: center center;
-    background-size: contain; 
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 4px solid var(--accent);
-  }
+    /* --- NAVIGATION --- */
+    nav {
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1.2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
 
-  .hero-text-container {
-    text-align: center;
-    z-index: 10;
-    width: 90%;
-  }
+    nav a {
+      color: var(--highlight);
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: 0.3s;
+      padding: 0.5rem 1.2rem;
+      border: 2px solid transparent;
+      text-transform: uppercase;
+    }
 
-  .hero-text {
-    background: rgba(0, 0, 0, 0.75);
-    padding: 15px 25px;
-    border: 2px solid var(--highlight);
-    color: var(--text-white);
-    font-size: 2rem;
-    text-transform: uppercase;
-    display: inline-block;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-  }
+    nav a:hover {
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+    }
 
-  /* --- NAVIGATION --- */
-  nav {
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    padding: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 2px solid var(--accent);
-  }
+    /* --- MOBILE STACK (PIXEL 8 PRO OPTIMIZED) --- */
+    @media (max-width: 768px) {
+      header {
+        height: auto;
+        display: block;
+        padding-bottom: 0;
+        background: #000;
+      }
+      
+      /* Shows the full image banner at the top */
+      header::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 40vh;
+        background: url('https://i.imgur.com/pN3g91q.jpeg') center top / cover no-repeat;
+        border-bottom: 4px solid var(--accent);
+      }
 
-  nav a {
-    color: var(--highlight);
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: 0.3s;
-    text-transform: uppercase;
-  }
+      .hero-text {
+        font-size: 1.4rem;
+        width: 100%;
+        max-width: none;
+        white-space: normal; /* Allows wrapping so it fits the phone screen */
+        padding: 1.5rem 1rem;
+        border-left: none;
+        border-right: none;
+        background: #111;
+        margin: 0;
+      }
 
-  nav a:hover { color: var(--accent); }
+      nav {
+        gap: 10px;
+        padding: 0.8rem;
+        flex-wrap: wrap;
+      }
 
-  /* --- MOBILE FIXES --- */
-  @media (max-width: 768px) {
-    header { height: 280px; }
-    .hero-text { font-size: 1.1rem; padding: 10px; width: 100%; }
-    nav { gap: 10px; flex-wrap: wrap; }
-    nav a { font-size: 0.85rem; border: 1px solid var(--accent); padding: 5px 10px; border-radius: 4px; }
-  }
+      nav a {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.7rem;
+        border: 2px solid var(--accent);
+        border-radius: 6px;
+      }
+    }
 
-  /* Section Styling */
-  section { padding: 4rem 1.5rem; max-width: 1100px; margin: auto; text-align: center; }
-  .service-box { background-color: #1a1a1a; padding: 2rem; border: 1px solid #333; border-radius: 8px; }
+    /* Standard Sections */
+    section { padding: 5rem 2rem; max-width: 1100px; margin: auto; text-align: center; }
+    .service-box { background-color: #222; padding: 2.5rem; border: 2px solid var(--accent); border-radius: 12px; }
+
+    /* Footer Styles */
+    footer {
+      text-align: center;
+      padding: 3rem;
+      border-top: 2px solid var(--accent);
+      margin-top: 2rem;
+      background: #000;
+      color: var(--text-color);
+    }
   </style>
+  <script>
+    function showConfirmation(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          alert('Thanks! We have received your request and will contact you shortly.');
+          form.reset();
+        } else {
+          alert('Oops! There was a problem. Please call us directly at 480-915-1432.');
+        }
+      });
+    }
+  </script>
 </head>
 <body>
 
-  <header>
-    <div class="hero-text-container">
-      <h1 class="hero-text">Protecting What Matters Most</h1>
-    </div>
+  <header id="home">
+    <div class="hero-text">Protecting What Matters Most</div>
   </header>
 
   <nav>
@@ -109,25 +175,43 @@
   </nav>
 
   <section id="about">
-    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 1.5rem; text-transform: uppercase;">The Man Behind the Mission</h2>
-    <p style="font-size: 1.2rem; color: #ccc; text-align: left;">
-      My name is <strong style="color: var(--highlight);">Joshua Phillips</strong>. After 11 years in the industry, I built 1st Strike to provide the professional-grade protection Arizona families deserve.
-    </p>
+    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 1.5rem;">About 1st Strike</h2>
+    <p style="font-size: 1.1rem; line-height: 1.8;">At 1st Strike Pest & Termite, we specialize in fast, effective, and family-safe pest solutions across Arizona. From rodents and termites to solar panel bird-proofing, we protect what matters most — your home and your family.</p>
   </section>
 
   <section id="services">
-    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 2rem;">Our Services</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 2.5rem;">Our Services</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
       <div class="service-box">
-        <h3 style="color: var(--highlight);">General Pest</h3>
-        <p>Expert control for ants, roaches, and spiders—safe for your family.</p>
+        <h3 style="color: var(--highlight); margin-bottom: 1rem;">General Pest</h3>
+        <p>Expert control for ants, roaches, and spiders — safe for your family and pets.</p>
       </div>
       <div class="service-box">
-        <h3 style="color: var(--highlight);">Solar Protection</h3>
-        <p>Panel cleaning and custom critter guards to protect your solar investment.</p>
+        <h3 style="color: var(--highlight); margin-bottom: 1rem;">Solar Protection</h3>
+        <p>Panel cleaning and custom critter guard installation to protect your investment.</p>
+      </div>
+      <div class="service-box">
+        <h3 style="color: var(--highlight); margin-bottom: 1rem;">Termite Control</h3>
+        <p>Professional treatments with honest pricing and detailed reporting.</p>
       </div>
     </div>
   </section>
+
+  <section id="contact">
+    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 1.5rem;">Get A Free Quote</h2>
+    <p style="margin-bottom: 2rem; font-size: 1.2rem;">Call Us: <strong style="color: var(--highlight);">480-915-1432</strong></p>
+    
+    <form action="https://formspree.io/f/xldlejwa" method="POST" onsubmit="showConfirmation(event)" style="display: grid; gap: 1.2rem; max-width: 600px; margin: auto;">
+      <input type="text" name="name" placeholder="Full Name" required style="padding: 1rem; border-radius: 6px; border: none; font-family: inherit;">
+      <input type="text" name="contact" placeholder="Phone or Email" required style="padding: 1rem; border-radius: 6px; border: none; font-family: inherit;">
+      <textarea name="message" placeholder="How can we help?" rows="4" required style="padding: 1rem; border-radius: 6px; border: none; font-family: inherit;"></textarea>
+      <button type="submit" style="padding: 1.2rem; background: var(--accent); color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; font-family: 'Russo One'; text-transform: uppercase; font-size: 1.1rem;">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 1st Strike Pest & Termite | Arizona Licensed & Insured</p>
+  </footer>
 
 </body>
 </html>
