@@ -7,48 +7,70 @@
   <title>1st Strike Pest & Termite</title>
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --main-bg: #111;
-      --accent: #e31837;
-      --text-color: #fff;
-      --highlight: #ffcb05;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Russo One', sans-serif;
-      background-color: var(--main-bg);
-      color: var(--text-color);
-      overflow-x: hidden;
-    }
+  :root {
+    --main-bg: #000;
+    --accent: #e31837; /* 1st Strike Red */
+    --highlight: #ffcb05; /* 1st Strike Yellow */
+    --text-white: #ffffff;
+  }
 
-    /* --- DESKTOP HERO (BOLD & WIDE) --- */
-    header {
-  height: 60vh; 
-  background-color: #000;
-  /* Use 'contain' so the logo stays fully visible on mobile */
-  background-image: url('https://i.imgur.com/bACN5Gz.png');
-  background-position: center center;
-  background-size: contain; 
-  background-repeat: no-repeat;
-  border-bottom: 4px solid #007bff; /* Optional blue accent for Solar */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .hero-text {
-      font-size: 3.5rem;
-      padding: 1.5rem 2rem;
-      background-color: rgba(0, 0, 0, 0.75);
-      border: 4px solid var(--accent);
-      color: var(--highlight);
-      text-transform: uppercase;
-      z-index: 2;
-      
-      /* THE STRETCH FIX */
-      width: 95%;
-      max-width: 1200px;
-      white-space: nowrap; /* Keeps text on one line for desktop */
-      letter-spacing: 1px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  body {
+    font-family: 'Russo One', sans-serif;
+    background-color: var(--main-bg);
+    color: var(--text-white);
+  }
+
+  /* --- THE FIXED HEADER --- */
+  header {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Locked height so it doesn't mess up the page */
+    background-color: #000;
+    /* Your Direct Imgur Link */
+    background-image: url('https://i.imgur.com/bACN5Gz.png');
+    background-position: center center;
+    background-size: contain; 
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border-bottom: 4px solid var(--accent);
+  }
+
+  /* This container forces the text to stay dead-center of the logo */
+  .hero-text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .hero-text {
+    background: rgba(0, 0, 0, 0.75); /* Dark tint makes yellow pop */
+    padding: 20px 30px;
+    border: 3px solid var(--highlight);
+    color: var(--text-white);
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    display: inline-block;
+  }
+
+  /* Mobile Fix for Pixel 8 Pro */
+  @media (max-width: 768px) {
+    header { height: 300px; }
+    .hero-text { 
+      font-size: 1.2rem; 
+      padding: 15px;
+      width: 100%;
     }
-
+  }
+</style>
     /* --- NAVIGATION --- */
     nav {
       background-color: #000;
@@ -160,9 +182,11 @@
 </head>
 <body>
 
-  <header id="home">
-    <div class="hero-text">Protecting What Matters Most</div>
-  </header>
+  <header>
+  <div class="hero-text-container">
+    <h1 class="hero-text">Protecting What Matters Most</h1>
+  </div>
+</header>
 
   <nav>
     <a href="#home">Home</a>
