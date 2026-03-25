@@ -21,14 +21,14 @@
       overflow-x: hidden;
     }
 
-    /* --- DESKTOP FIRST (The Original Bold Look) --- */
+    /* --- DESKTOP HERO (BOLD & WIDE) --- */
     header {
       position: relative;
       height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-end; /* Text sits at the bottom of the image */
+      justify-content: flex-end; 
       text-align: center;
       background: #000 url('https://i.imgur.com/pN3g91q.jpeg') center center / cover no-repeat;
       padding-bottom: 5vh;
@@ -36,16 +36,22 @@
 
     .hero-text {
       font-size: 3.5rem;
-      padding: 1.5rem;
-      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.75);
       border: 4px solid var(--accent);
       color: var(--highlight);
       text-transform: uppercase;
       z-index: 2;
-      width: 90%;
-      max-width: 900px;
+      
+      /* THE STRETCH FIX */
+      width: 95%;
+      max-width: 1200px;
+      white-space: nowrap; /* Keeps text on one line for desktop */
+      letter-spacing: 1px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
 
+    /* --- NAVIGATION --- */
     nav {
       background-color: #000;
       display: flex;
@@ -66,6 +72,7 @@
       transition: 0.3s;
       padding: 0.5rem 1.2rem;
       border: 2px solid transparent;
+      text-transform: uppercase;
     }
 
     nav a:hover {
@@ -74,7 +81,7 @@
       border-radius: 6px;
     }
 
-    /* --- MOBILE STACK (The "Works Perfect" Version) --- */
+    /* --- MOBILE STACK (PIXEL 8 PRO OPTIMIZED) --- */
     @media (max-width: 768px) {
       header {
         height: auto;
@@ -83,7 +90,7 @@
         background: #000;
       }
       
-      /* Forces image to show fully without cropping on phone */
+      /* Shows the full image banner at the top */
       header::before {
         content: "";
         display: block;
@@ -97,19 +104,18 @@
         font-size: 1.4rem;
         width: 100%;
         max-width: none;
+        white-space: normal; /* Allows wrapping so it fits the phone screen */
+        padding: 1.5rem 1rem;
         border-left: none;
         border-right: none;
-        padding: 1.5rem 1rem;
         background: #111;
-        display: block;
         margin: 0;
       }
 
       nav {
-        flex-direction: row;
-        flex-wrap: wrap;
         gap: 10px;
         padding: 0.8rem;
+        flex-wrap: wrap;
       }
 
       nav a {
@@ -121,9 +127,38 @@
     }
 
     /* Standard Sections */
-    section { padding: 4rem 2rem; max-width: 1100px; margin: auto; text-align: center; }
-    .service-box { background-color: #222; padding: 2rem; border: 2px solid var(--accent); border-radius: 12px; }
+    section { padding: 5rem 2rem; max-width: 1100px; margin: auto; text-align: center; }
+    .service-box { background-color: #222; padding: 2.5rem; border: 2px solid var(--accent); border-radius: 12px; }
+
+    /* Footer Styles */
+    footer {
+      text-align: center;
+      padding: 3rem;
+      border-top: 2px solid var(--accent);
+      margin-top: 2rem;
+      background: #000;
+      color: var(--text-color);
+    }
   </style>
+  <script>
+    function showConfirmation(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          alert('Thanks! We have received your request and will contact you shortly.');
+          form.reset();
+        } else {
+          alert('Oops! There was a problem. Please call us directly at 480-915-1432.');
+        }
+      });
+    }
+  </script>
 </head>
 <body>
 
@@ -140,40 +175,42 @@
   </nav>
 
   <section id="about">
-    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 1rem;">About 1st Strike Pest & Termite</h2>
-    <p style="font-size: 1.1rem; line-height: 1.8;">At 1st Strike, we specialize in fast, effective, and family-safe pest solutions across Arizona. From rodents and termites to solar panel bird-proofing, we protect what matters most — your home and your peace of mind.</p>
+    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 1.5rem;">About 1st Strike</h2>
+    <p style="font-size: 1.1rem; line-height: 1.8;">At 1st Strike Pest & Termite, we specialize in fast, effective, and family-safe pest solutions across Arizona. From rodents and termites to solar panel bird-proofing, we protect what matters most — your home and your family.</p>
   </section>
 
   <section id="services">
-    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 2rem;">Our Services</h2>
+    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 2.5rem;">Our Services</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
       <div class="service-box">
-        <h3 style="color: var(--highlight);">General Pest</h3>
-        <p>Residential treatments safe for families and pets.</p>
+        <h3 style="color: var(--highlight); margin-bottom: 1rem;">General Pest</h3>
+        <p>Expert control for ants, roaches, and spiders — safe for your family and pets.</p>
       </div>
       <div class="service-box">
-        <h3 style="color: var(--highlight);">Solar Protection</h3>
-        <p>Cleaning and custom critter guard installation.</p>
+        <h3 style="color: var(--highlight); margin-bottom: 1rem;">Solar Protection</h3>
+        <p>Panel cleaning and custom critter guard installation to protect your investment.</p>
       </div>
       <div class="service-box">
-        <h3 style="color: var(--highlight);">Termite Control</h3>
-        <p>Detailed reports and professional protection.</p>
+        <h3 style="color: var(--highlight); margin-bottom: 1rem;">Termite Control</h3>
+        <p>Professional treatments with honest pricing and detailed reporting.</p>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 1rem;">Contact Us</h2>
-    <form action="https://formspree.io/f/xldlejwa" method="POST" style="display: grid; gap: 1rem; max-width: 600px; margin: auto;">
-      <input type="text" name="name" placeholder="Name" required style="padding: 1rem; border-radius: 6px; border: none;">
-      <input type="text" name="contact" placeholder="Phone or Email" required style="padding: 1rem; border-radius: 6px; border: none;">
-      <textarea name="message" placeholder="Issue or Concern" rows="4" required style="padding: 1rem; border-radius: 6px; border: none;"></textarea>
-      <button type="submit" style="padding: 1.2rem; background: var(--accent); color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; font-family: 'Russo One'; text-transform: uppercase;">Send Message</button>
+    <h2 style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 1.5rem;">Get A Free Quote</h2>
+    <p style="margin-bottom: 2rem; font-size: 1.2rem;">Call Us: <strong style="color: var(--highlight);">480-915-1432</strong></p>
+    
+    <form action="https://formspree.io/f/xldlejwa" method="POST" onsubmit="showConfirmation(event)" style="display: grid; gap: 1.2rem; max-width: 600px; margin: auto;">
+      <input type="text" name="name" placeholder="Full Name" required style="padding: 1rem; border-radius: 6px; border: none; font-family: inherit;">
+      <input type="text" name="contact" placeholder="Phone or Email" required style="padding: 1rem; border-radius: 6px; border: none; font-family: inherit;">
+      <textarea name="message" placeholder="How can we help?" rows="4" required style="padding: 1rem; border-radius: 6px; border: none; font-family: inherit;"></textarea>
+      <button type="submit" style="padding: 1.2rem; background: var(--accent); color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; font-family: 'Russo One'; text-transform: uppercase; font-size: 1.1rem;">Send Message</button>
     </form>
   </section>
 
-  <footer style="text-align: center; padding: 2rem; border-top: 2px solid var(--accent); margin-top: 2rem; background: #000;">
-    <p>&copy; 2026 1st Strike Pest & Termite | Licensed & Insured</p>
+  <footer>
+    <p>&copy; 2026 1st Strike Pest & Termite | Arizona Licensed & Insured</p>
   </footer>
 
 </body>
