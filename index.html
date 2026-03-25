@@ -23,16 +23,14 @@
 
     /* --- DESKTOP HERO (BOLD & WIDE) --- */
     header {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end; 
-      text-align: center;
-      background: #000 url('[img]https://i.imgur.com/bACN5Gz.png[/img]') center center / cover no-repeat;
-      padding-bottom: 5vh;
-    }
+  height: 60vh; 
+  background-color: #000;
+  /* Use 'contain' so the logo stays fully visible on mobile */
+  background-image: url('https://i.imgur.com/bACN5Gz.png');
+  background-position: center center;
+  background-size: contain; 
+  background-repeat: no-repeat;
+  border-bottom: 4px solid #007bff; /* Optional blue accent for Solar */
 
     .hero-text {
       font-size: 3.5rem;
