@@ -26,28 +26,32 @@
     }
     header {
   position: relative;
-  /* Use 100vh for desktop, but we will tweak for mobile below */
-  height: 80vh; 
+  height: 60vh; /* Reduced height so the links aren't too far down */
   display: flex;
-  align-items: center; /* Changed from flex-end to center for better mobile framing */
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centers the content vertically */
   text-align: center;
   background: #000 url('https://i.imgur.com/pN3g91q.jpeg') center center / cover no-repeat;
-  padding: 1rem;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .hero-text {
-  font-size: 2.2rem; /* Slightly smaller for better fit */
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.75);
+  font-size: 2.5rem;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.8); /* Darker for better contrast */
   border: 3px solid var(--accent);
   color: var(--highlight);
   text-transform: uppercase;
-  z-index: 2;
-  width: 90%; /* Ensures it doesn't hit the edges of the phone screen */
-  max-width: 600px;
+  width: 90%;
+  max-width: 700px;
 }
-
 /* Specific Mobile Fix */
 @media (max-width: 768px) {
   header {
@@ -60,16 +64,18 @@
   }
 }
     nav {
-      background-color: #000;
-      display: flex;
-      justify-content: space-around;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-top: 2px solid var(--accent);
-      border-bottom: 2px solid var(--accent);
-    }
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows links to wrap on small phone screens */
+  gap: 10px;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
     nav a {
       color: var(--highlight);
       text-decoration: none;
