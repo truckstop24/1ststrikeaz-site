@@ -25,24 +25,40 @@
       overflow-x: hidden;
     }
     header {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      text-align: center;
-      background: #000 url('https://i.imgur.com/pN3g91q.jpeg') center center / cover no-repeat;
-      padding-bottom: 5vh;
-    }
-    .hero-text {
-      font-size: 3rem;
-      padding: 1rem;
-      background-color: rgba(0, 0, 0, 0.7);
-      border: 3px solid var(--accent);
-      color: var(--highlight);
-      text-transform: uppercase;
-      z-index: 2;
-    }
+  position: relative;
+  /* Use 100vh for desktop, but we will tweak for mobile below */
+  height: 80vh; 
+  display: flex;
+  align-items: center; /* Changed from flex-end to center for better mobile framing */
+  justify-content: center;
+  text-align: center;
+  background: #000 url('https://i.imgur.com/pN3g91q.jpeg') center center / cover no-repeat;
+  padding: 1rem;
+}
+
+.hero-text {
+  font-size: 2.2rem; /* Slightly smaller for better fit */
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 3px solid var(--accent);
+  color: var(--highlight);
+  text-transform: uppercase;
+  z-index: 2;
+  width: 90%; /* Ensures it doesn't hit the edges of the phone screen */
+  max-width: 600px;
+}
+
+/* Specific Mobile Fix */
+@media (max-width: 768px) {
+  header {
+    height: 60vh; /* Shorter height so users see the Nav and About section sooner */
+    background-attachment: scroll; /* Prevents "jumping" on mobile scroll */
+  }
+  .hero-text {
+    font-size: 1.5rem;
+    margin-top: 20px;
+  }
+}
     nav {
       background-color: #000;
       display: flex;
